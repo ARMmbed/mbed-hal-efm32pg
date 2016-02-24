@@ -254,6 +254,11 @@ Reset_Handler:
     blt     .L_loop3
 #endif /* __STARTUP_CLEAR_BSS_MULTIPLE || __STARTUP_CLEAR_BSS */
 
+    ldr     r0, =pre_uvisor_init
+    blx     r0
+    ldr     r0, =uvisor_init
+    blx     r0
+
 #ifndef __START
 #define __START _start
 #endif
